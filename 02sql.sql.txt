@@ -1,0 +1,47 @@
+
+-- create
+CREATE TABLE EMPLOYEE (
+  empId int,
+  name varchar(15),
+  dept varchar(10)
+);
+
+-- insert
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (1, 'Clark', 'Sales');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (2, 'Dave', 'Accounting');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (3, 'Ava', 'Sales');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (4, 'Rone', 'Engnr');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (5, 'Christ', 'Mangmnt');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (6, 'Neel', 'Sales');
+INSERT INTO EMPLOYEE(name,dept) VALUES ('Neel', 'Sales');
+
+
+-- fetch 
+SELECT * FROM EMPLOYEE;
+
+--orderd by
+
+SELECT * FROM EMPLOYEE ORDER BY dept;
+
+SELECT * FROM EMPLOYEE ORDER BY dept DESC;
+
+--rename TABLE EMPLOYEE TO EMPLOYEE1;  ...rename not working
+--UPDATE AND delete
+UPDATE EMPLOYEE SET name='ANJITHA' WHERE empId=3;
+SELECT * FROM EMPLOYEE;
+
+DELETE FROM EMPLOYEE WHERE name='ANJITHA';
+SELECT * FROM EMPLOYEE;
+--AND--OR--NOT
+SELECT * FROM EMPLOYEE WHERE name='Clark' OR name='Dave';
+
+SELECT * FROM EMPLOYEE WHERE name='Clark' AND empId=1;
+
+SELECT * FROM EMPLOYEE WHERE NOT name='Clark';  
+
+---IS NULL OR IS NOT iS NOT NULL
+SELECT * FROM EMPLOYEE WHERE name IS NOT NULL;
+SELECT * FROM EMPLOYEE WHERE empId IS NULL;
+
+
+

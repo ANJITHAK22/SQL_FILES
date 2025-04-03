@@ -1,0 +1,43 @@
+
+-- create
+CREATE TABLE EMPLOYEE (
+  empId int,
+  name varchar(15),
+  dept varchar(10)
+);
+
+-- insert
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (1, 'Clark', 'Sales');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (2, 'Dave', 'Accounting');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (3, 'Ava', 'Sales');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (4, 'Rone', 'Engnr');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (5, 'Christ', 'Mangmnt');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (6, 'Neel', 'Sales');
+INSERT INTO EMPLOYEE(name,dept) VALUES ('Neel', 'Sales');
+
+CREATE TABLE CUSTOMER(
+  custid int,
+  Cname varchar(15),
+  empId int,
+  Cadress varchar(50)
+);
+
+-- insert
+INSERT INTO CUSTOMER(custid,Cname,empId,Cadress) VALUES (01,'Abhi',3,'newyork city');
+INSERT INTO CUSTOMER(custid,Cname,empId,Cadress) VALUES (03,'Kabhir',4,'Switz');
+INSERT INTO CUSTOMER(custid,Cname,empId,Cadress) VALUES (02,'rathee',1,'americns');
+INSERT INTO CUSTOMER(custid,Cname,empId,Cadress) VALUES (03,'Kabhir',5,'Switz');
+INSERT INTO CUSTOMER(custid,Cname,empId,Cadress) VALUES (02,'rathee',6,'americns');
+-- fetch 
+
+--INNERJOINTS
+SELECT E.dept,E.name,C.Cname FROM EMPLOYEE E INNER JOIN CUSTOMER C ON C.custid=E.empId
+--SELECT E.dept,E.name,C.Cname FROM EMPLOYEE E LEFT JOIN CUSTOMER C ON C.custid=E.empId
+--SELECT e.dept,e.name,c.Cname FROM EMPLOYEE e RIGHT JOIN CUSTOMER c ON e.empId=c.custid ORDER BY e.name;
+--SELECT E.dept,E.name,C.Cname FROM EMPLOYEE E FULL OUTER JOIN CUSTOMER C ON C.custid=E.empId
+--SELECT E.dept,E.name,C.Cname FROM EMPLOYEE E cross JOIN CUSTOMER C ON C.custid=E.empId
+--UNION MUST HAVE EQUAL ROWS
+--SELECT * FROM EMPLOYEE WHERE empId>4 UNION ALL SELECT * FROM CUSTOMER WHERE NOT Cname='Abhi'
+
+--GROUP BY
+SELECT COUNT(custid),Cname from CUSTOMER GROUP BY Cname;

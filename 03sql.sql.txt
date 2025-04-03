@@ -1,0 +1,43 @@
+
+-- create
+CREATE TABLE EMPLOYEE (
+  empId int,
+  name varchar(15),
+  dept varchar(10)
+);
+
+-- insert
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (1, 'Clark', 'Sales');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (2, 'Dave', 'Accounting');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (3, 'Ava', 'Sales');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (4, 'Rone', 'Engnr');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (5, 'Christ', 'Mangmnt');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (6, 'Neel', 'Sales');
+INSERT INTO EMPLOYEE(name,dept) VALUES ('Neel', 'Sales');
+-- fetch 
+---TOP
+SELECT TOP 3 * FROM EMPLOYEE;
+
+SELECT TOP 2 * FROM EMPLOYEE WHERE empId>2;
+--LIMIT
+--SELECT * FROM EMPLOYEE LIMIT 3 ;
+--MIN,MAX,AVG,COUNT,sum
+SELECT COUNT(name) FROM EMPLOYEE WHERE empId>4;
+SELECT SUM(empId) FROM EMPLOYEE WHERE dept='Sales'
+SELECT AVG(empId) FROM  EMPLOYEE WHERE name='Neel';
+SELECT  MIN(empId) FROM EMPLOYEE ;
+SELECT MAX(empId)FROM EMPLOYEE WHERE dept='Sales';
+
+--AS
+SELECT name AS empname FROM EMPLOYEE WHERE empId>4;
+--SELECT name+empId+','+dept AS empDetails FROM EMPLOYEE WHERE empId>4;
+--WILDCARD...LIKE  %, _ ,[],[-} combntn of this also
+
+SELECT empId,name FROM EMPLOYEE WHERE name LIKE 'Ne%'
+
+SELECT empId,name FROM EMPLOYEE WHERE name LIKE '%st';
+
+SELECT empId,name FROM EMPLOYEE WHERE name LIKE '_eel';
+SELECT empId,name FROM EMPLOYEE WHERE name LIKE '[A-R]%';
+SELECT empId,name FROM EMPLOYEE WHERE name LIKE '[AR]%'  ;
+SELECT empId,name FROM EMPLOYEE WHERE name LIKE '_ee%';

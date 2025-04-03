@@ -1,0 +1,45 @@
+
+-- create
+CREATE TABLE EMPLOYEE (
+  empId int,
+  name varchar(15),
+  dept varchar(10)
+);
+
+-- insert
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (1, 'Clark', 'Sales');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (2, 'Dave', 'Accounting');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (3, 'Ava', 'Sales');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (4, 'Rone', 'Engnr');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (5, 'Christ', 'Mangmnt');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (6, 'Neel', 'Sales');
+
+-- fetch 
+SELECT * FROM EMPLOYEE;
+
+--select distinct
+SELECT COUNT(DISTINCT dept) FROM EMPLOYEE;
+--USES OF WHERE CLAUSE//CONDITIONS
+SELECT * FROM EMPLOYEE WHERE dept='Sales';
+--where and operatord
+
+SELECT empId,name FROM EMPLOYEE WHERE empId>=3;
+
+SELECT empId,name FROM EMPLOYEE WHERE dept<>'Sales';
+
+--betwn,like,IN
+SELECT name FROM EMPLOYEE WHERE empId between 1 AND 5;
+--% using
+SELECT empId,name FROM EMPLOYEE WHERE name LIKE '%ne'
+
+SELECT name,dept FROM EMPLOYEE WHERE dept LIKE 'Ac%'
+
+--IN
+SELECT empId,name FROM EMPLOYEE WHERE name IN ('Rone');
+SELECT empId,name FROM EMPLOYEE WHERE name IN ('Rone','Christ');
+
+
+
+
+
+
